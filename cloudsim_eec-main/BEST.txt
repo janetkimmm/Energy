@@ -1,0 +1,59 @@
+Algorithm : priority-base and resource-aware scheduling
+
+Input.md
+SLA violation report
+SLA0: 27.3438%
+SLA1: 0%
+SLA2: 0%
+Total Energy 0.0545159KW-Hour
+Simulation run finished in 30.6 seconds
+
+TallAndShort
+SLA violation report
+SLA0: 100%
+SLA1: 58.5366%
+SLA2: 0%
+Total Energy 0.111663KW-Hour
+Simulation run finished in 137.76 seconds
+
+Nice
+SLA violation report
+SLA0: 0%
+SLA1: 0%
+SLA2: 0%
+Total Energy 0.0226453KW-Hour
+Simulation run finished in 30.6 seconds
+
+Spikey
+SLA violation report
+SLA0: 68.8889%
+SLA1: 58.5366%
+SLA2: 0%
+Total Energy 0.0408343KW-Hour
+Simulation run finished in 61.98 seconds
+
+Spikey2 
+SLA violation report
+SLA0: 85.4968%
+SLA1: 58.5366%
+SLA2: 0%
+Total Energy 0.0709446KW-Hour
+Simulation run finished in 99.78 seconds
+
+MatchMe-1
+SLA violation report
+SLA0: 85.4968%
+SLA1: 58.5366%
+SLA2: 0%
+Total Energy 0.203098KW-Hour
+Simulation run finished in 99.78 seconds
+
+BigAndSmall
+SLA violation report
+SLA0: 85.4968%
+SLA1: 58.5366%
+SLA2: 0%
+Total Energy 0.0807008KW-Hour
+Simulation run finished in 99.78 seconds
+
+Couldn't run the Hour and GentlerHour testcases. Sorry about that.

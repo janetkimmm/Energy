@@ -118,12 +118,10 @@ void Scheduler::NewTask(Time_t now, TaskId_t task_id)
       VMId_t new_vm = VM_Create(task.required_vm, task.required_cpu);
       VM_Attach(new_vm, best_machine);
       VM_AddTask(new_vm, task_id, priority);
-      //   printf("Task %u assigned to new VM %u on Machine %u\n", task_id,
-      //             new_vm, best_machine);
    }
    else
    {
-      //   printf("No suitable machine found for task %u\n", task_id);
+      printf("No suitable machine found for task %u\n", task_id);
    }
 }
 
@@ -190,6 +188,9 @@ void Scheduler::PeriodicCheck(Time_t now)
       }
    }
 
+   // printf("high : %d Mid %d low %d\n", high_priority_tasks, mid_priority_tasks,
+   //        low_priority_tasks);
+
    // Turn off idle machines to save energy
    for(MachineId_t machine_id : idle_machines)
    {
@@ -198,8 +199,7 @@ void Scheduler::PeriodicCheck(Time_t now)
    }
 
    // Check if more machines are needed
-   if(high_priority_tasks >
-      active_vms * 2)  // Example: Each VM handles 2 high-priority tasks
+   if(high_priority_tasks > active_vms * 2)
    {
       for(MachineId_t i = 0; i < Machine_GetTotal(); ++i)
       {
@@ -207,17 +207,22 @@ void Scheduler::PeriodicCheck(Time_t now)
 
          if(machine.s_state == S5)  // Find a powered-down machine
          {
+            printf("set state\n");
             Machine_SetState(i, S0);  // Power it on
-
+            printf("done\n");
             // Create a new VM on this machine
+            // if(machine.s_state == S0)
+            // {
             VMId_t new_vm = VM_Create(LINUX, machine.cpu);
             VM_Attach(new_vm, i);
             vms.push_back(new_vm);
-
             active_machines++;
             active_vms++;
+            // }
+
             break;  // Power on one machine at a time
          }
+
       }
    }
 
